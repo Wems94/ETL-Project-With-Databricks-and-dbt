@@ -1,0 +1,31 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# segredos
+.env
+
+# dados (arquivos grandes não vão para o Git)
+data/
+
+# python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# dbt (usado a partir da etapa da silver)
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+
+# macOS
+.DS_Store
