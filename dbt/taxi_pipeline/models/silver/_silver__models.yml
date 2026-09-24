@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: slv_taxi_trips
+    description: Corridas de táxi amarelo de NYC, tipadas, deduplicadas e com chave substituta por hash. Sem chave natural na origem.
+    columns:
+      - name: trip_id
+        description: Chave substituta (hash sha256) gerada a partir de vendor, horários e coordenadas, pois não há chave natural na origem.
+        tests:
+          - not_null
+          - unique
+      - name: vendor_id
+        description: Código do provedor do sistema de despacho (TLC).
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2]
+      - name: pickup_datetime
+        description: Data e hora de início da corrida.
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: Data e hora de término da corrida.
+        tests:
+          - not_null
+      - name: payment_type
+        description: Código do tipo de pagamento (1-4, conforme dicionário TLC).
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
+      - name: trip_distance
+        description: Distância da corrida, em milhas.
+        tests:
+          - not_null

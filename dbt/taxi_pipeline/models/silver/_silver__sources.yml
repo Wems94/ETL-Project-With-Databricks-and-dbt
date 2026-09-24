@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    catalog: workspace
+    schema: dev_bronze
+    tables:
+      - name: brz_taxi_trips
+        description: Corridas de táxi amarelo de NYC, ingeridas em bronze via PySpark, fiel à origem (Kaggle elemento/nyc-yellow-taxi-trip-data, arquivo 2016-03).
