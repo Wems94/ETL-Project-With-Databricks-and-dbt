@@ -1,0 +1,10 @@
+env: dev
+catalog: workspace
+
+source:
+  volume_path: /Volumes/workspace/dev_bronze/landing
+  file_name: yellow_tripdata_2016-03.parquet
+
+target:
+  schema: dev_bronze
+  table: brz_taxi_trips
