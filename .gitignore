@@ -23,8 +23,8 @@ __pycache__/
 .ruff_cache/
 
 # dbt (usado a partir da etapa da silver)
-dbt/target/
-dbt/dbt_packages/
+dbt/taxi_pipeline/target/
+dbt/taxi_pipeline/dbt_packages/
 dbt/logs/
 
 # macOS
