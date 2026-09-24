@@ -8,7 +8,7 @@ ingestão: _ingested_at, _source e _batch_id.
 # COMMAND ----------
 
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import yaml
 from pyspark.sql import functions as F
@@ -28,11 +28,11 @@ source_path = f"{volume_path}/{file_name}"
 target = f"{catalog}.{target_schema}.{target_table}"
 
 batch_id = str(uuid.uuid4())
-ingested_at = datetime.now(timezone.utc)
+ingested_at = datetime.now(UTC)
 
 # COMMAND ----------
 
-df = spark.read.parquet(source_path)
+df = spark.read.parquet(source_path)  # noqa: F821  # spark é injetado pelo runtime do Databricks
 
 df_bronze = (
     df.withColumn("_ingested_at", F.lit(ingested_at))
