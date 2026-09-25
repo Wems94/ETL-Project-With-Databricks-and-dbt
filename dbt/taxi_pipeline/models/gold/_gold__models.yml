@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: agg_demand_by_hour
+    description: Demanda e receita de corridas agregadas por data, dia da semana e hora do dia.
+    columns:
+      - name: pickup_date
+        description: Data do embarque.
+        tests:
+          - not_null
+      - name: pickup_day_of_week
+        description: Dia da semana do embarque (1 = domingo a 7 = sábado, padrão do Spark).
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5, 6, 7]
+      - name: pickup_day_name
+        description: Nome do dia da semana do embarque, por extenso em inglês.
+        tests:
+          - not_null
+      - name: pickup_hour
+        description: Hora do embarque (0 a 23).
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+      - name: trip_count
+        description: Quantidade de corridas no grupo.
+        tests:
+          - not_null
+      - name: total_revenue
+        description: Soma de total_amount no grupo.
+        tests:
+          - not_null
+      - name: avg_revenue_per_trip
+        description: Receita média por corrida no grupo.
+      - name: avg_trip_distance
+        description: Distância média das corridas no grupo, em milhas.
