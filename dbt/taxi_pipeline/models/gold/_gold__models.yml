@@ -39,7 +39,6 @@ models:
       - name: avg_trip_distance
         description: Distância média das corridas no grupo, em milhas.
 
-
   - name: agg_tips_by_payment_type
     description: Gorjeta média e total por tipo de pagamento.
     columns:
@@ -63,3 +62,25 @@ models:
         description: Gorjeta média por corrida no grupo.
       - name: avg_tip_pct_of_fare
         description: Percentual médio da gorjeta sobre a tarifa (fare_amount), nas corridas com tarifa maior que zero.
+
+  - name: agg_demand_by_area
+    description: Demanda e receita de corridas agregadas por célula de coordenada de embarque (grade de ~1,1 km). Exclui corridas com coordenada de embarque (0, 0), que representam erro de GPS conhecido na origem.
+    columns:
+      - name: pickup_lat_grid
+        description: Latitude de embarque arredondada para 2 casas decimais (célula da grade).
+        tests:
+          - not_null
+      - name: pickup_long_grid
+        description: Longitude de embarque arredondada para 2 casas decimais (célula da grade).
+        tests:
+          - not_null
+      - name: trip_count
+        description: Quantidade de corridas na célula.
+        tests:
+          - not_null
+      - name: total_revenue
+        description: Soma de total_amount na célula.
+        tests:
+          - not_null
+      - name: avg_trip_distance
+        description: Distância média das corridas na célula, em milhas.
