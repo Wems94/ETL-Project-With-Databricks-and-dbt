@@ -38,3 +38,28 @@ models:
         description: Receita média por corrida no grupo.
       - name: avg_trip_distance
         description: Distância média das corridas no grupo, em milhas.
+
+
+  - name: agg_tips_by_payment_type
+    description: Gorjeta média e total por tipo de pagamento.
+    columns:
+      - name: payment_type
+        description: Código do tipo de pagamento (1-4, conforme dicionário TLC).
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
+      - name: trip_count
+        description: Quantidade de corridas no grupo.
+        tests:
+          - not_null
+      - name: total_tips
+        description: Soma de tip_amount no grupo.
+        tests:
+          - not_null
+      - name: avg_tip_amount
+        description: Gorjeta média por corrida no grupo.
+      - name: avg_tip_pct_of_fare
+        description: Percentual médio da gorjeta sobre a tarifa (fare_amount), nas corridas com tarifa maior que zero.
