@@ -29,3 +29,7 @@ dbt/logs/
 
 # macOS
 .DS_Store
+
+# notas de planejamento pessoal (não fazem parte do projeto entregue)
+docs/context.md
+docs/Project.md

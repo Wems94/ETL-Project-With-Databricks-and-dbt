@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" width="1440" height="600" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Diagrama da arquitetura medalhao do pipeline NYC Yellow Taxi: da maquina local ao Databricks (bronze, silver, gold) ate o consumo em SQL">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker>
+  <marker id="arrowSmall" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/></marker>
+  <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="#1b1f24" flood-opacity="0.10"/></filter>
+  <symbol id="icon-laptop" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.2"/><line x1="1" y1="19" x2="23" y2="19"/></g></symbol>
+  <symbol id="icon-cylinder" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6 L4 18 A8 3 0 0 0 20 18 L20 6"/></g></symbol>
+  <symbol id="icon-medal" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.2"/><polyline points="8,13.3 6.2,20.5 12,17.3 17.8,20.5 16,13.3"/><polyline points="9.6,9 11,10.5 14.6,6.8" stroke-width="1.6"/></g></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.2"/><line x1="12" y1="17" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="7" y1="13.5" x2="7" y2="9.5" stroke-width="2"/><line x1="11.3" y1="13.5" x2="11.3" y2="7" stroke-width="2"/><line x1="15.6" y1="13.5" x2="15.6" y2="10.5" stroke-width="2"/></g></symbol>
+  <symbol id="icon-download" viewBox="0 0 24 24"><g fill="none" stroke="#2d333b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="13.5"/><polyline points="7,9.5 12,14.5 17,9.5"/><line x1="5" y1="19.5" x2="19" y2="19.5"/></g></symbol>
+  <symbol id="icon-file" viewBox="0 0 24 24"><g fill="none" stroke="#2d333b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 H14 L18 6 V22 H6 Z"/><path d="M14 2 V6 H18"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></g></symbol>
+  <symbol id="icon-convert" viewBox="0 0 24 24"><g fill="none" stroke="#2d333b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="8" x2="16" y2="8"/><polyline points="12,4.3 16,8 12,11.7"/><line x1="20" y1="16" x2="8" y2="16"/><polyline points="12,12.3 8,16 12,19.7"/></g></symbol>
+  <symbol id="icon-upload" viewBox="0 0 24 24"><g fill="none" stroke="#2d333b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="21" x2="12" y2="10.5"/><polyline points="7,14.5 12,9.5 17,14.5"/><line x1="5" y1="4.5" x2="19" y2="4.5"/></g></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.2 L19 5.2 V11 C19 16.4 16 19.8 12 21.7 C8 19.8 5 16.4 5 11 V5.2 Z"/><polyline points="8.5,12 11,14.5 15.6,9"/></g></symbol>
+  <symbol id="icon-workflow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="4.5" cy="12" r="2.3"/><circle cx="12" cy="12" r="2.3"/><circle cx="19.5" cy="12" r="2.3"/><line x1="6.9" y1="12" x2="9.5" y2="12" marker-end="url(#arrowSmall)"/><line x1="14.4" y1="12" x2="17" y2="12" marker-end="url(#arrowSmall)"/></g></symbol>
+  <symbol id="icon-ci" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><polyline points="7.5,12.3 10.6,15.5 16.3,8.8"/></g></symbol>
+</defs>
+<rect width="1440" height="600" fill="#ffffff"/>
+<text x="32" y="42" font-size="23" font-weight="700" fill="#1b1f24">Arquitetura medalhão · NYC Yellow Taxi</text>
+<text x="32" y="64" font-size="13.5" fill="#57606a">Kaggle → Parquet local → Databricks (PySpark + dbt) → consumo em SQL</text>
+<rect x="308" y="95" width="872" height="330" rx="14" fill="#fbfcfd" stroke="#9096a0" stroke-width="1.3" stroke-dasharray="2 5" stroke-linecap="round"/>
+<text x="328" y="122" font-size="13.5" font-weight="700" fill="#57606a" letter-spacing="0.3">DATABRICKS FREE EDITION · UNITY CATALOG · SERVERLESS</text>
+<g filter="url(#cardShadow)">
+<rect x="30" y="158" width="244" height="224" rx="11" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.2"/>
+</g>
+<path d="M 30 200 V 169 A 11 11 0 0 1 41 158 H 263 A 11 11 0 0 1 274 169 V 200 Z" fill="#2d333b"/>
+<use href="#icon-laptop" x="44" y="169" width="20" height="20"/>
+<text x="163.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Máquina local</text>
+<circle cx="63" cy="231" r="15" fill="#ffffff" stroke="#d7dce2" stroke-width="1.2"/>
+<use href="#icon-download" x="53" y="221" width="20" height="20"/>
+<text x="84" y="229" font-size="12.5" font-weight="700" fill="#1b1f24">Kaggle CLI</text>
+<text x="84" y="245" font-size="11.5" fill="#57606a">download do CSV</text>
+<circle cx="63" cy="272" r="15" fill="#ffffff" stroke="#d7dce2" stroke-width="1.2"/>
+<use href="#icon-file" x="53" y="262" width="20" height="20"/>
+<text x="84" y="270" font-size="12.5" font-weight="700" fill="#1b1f24">CSV bruto</text>
+<text x="84" y="286" font-size="11.5" fill="#57606a">12,2 mi de linhas</text>
+<circle cx="63" cy="313" r="15" fill="#ffffff" stroke="#d7dce2" stroke-width="1.2"/>
+<use href="#icon-convert" x="53" y="303" width="20" height="20"/>
+<text x="84" y="311" font-size="12.5" font-weight="700" fill="#1b1f24">PyArrow</text>
+<text x="84" y="327" font-size="11.5" fill="#57606a">→ Parquet, tudo string</text>
+<circle cx="63" cy="354" r="15" fill="#ffffff" stroke="#d7dce2" stroke-width="1.2"/>
+<use href="#icon-upload" x="53" y="344" width="20" height="20"/>
+<text x="84" y="352" font-size="12.5" font-weight="700" fill="#1b1f24">Databricks CLI</text>
+<text x="84" y="368" font-size="11.5" fill="#57606a">upload para o volume</text>
+<g filter="url(#cardShadow)">
+<rect x="334" y="158" width="176" height="224" rx="11" fill="#eef3fa" stroke="#c3d5ea" stroke-width="1.2"/>
+</g>
+<path d="M 334 200 V 169 A 11 11 0 0 1 345 158 H 499 A 11 11 0 0 1 510 169 V 200 Z" fill="#3568a8"/>
+<use href="#icon-cylinder" x="348" y="169" width="20" height="20"/>
+<text x="433.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Landing</text>
+<text x="422.0" y="230" font-size="12.8" font-weight="700" fill="#1b1f24" text-anchor="middle">Volume</text>
+<text x="422.0" y="251" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">workspace.dev_bronze.landing</text>
+<text x="422.0" y="272" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Parquet · tudo string</text>
+<text x="422.0" y="293" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Sem transformação</text>
+<g filter="url(#cardShadow)">
+<rect x="544" y="158" width="176" height="224" rx="11" fill="#fbf3ea" stroke="#e8d0ac" stroke-width="1.2"/>
+</g>
+<path d="M 544 200 V 169 A 11 11 0 0 1 555 158 H 709 A 11 11 0 0 1 720 169 V 200 Z" fill="#a5672c"/>
+<use href="#icon-medal" x="558" y="169" width="20" height="20"/>
+<text x="643.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Bronze</text>
+<text x="632.0" y="230" font-size="12.8" font-weight="700" fill="#1b1f24" text-anchor="middle">brz_taxi_trips</text>
+<text x="632.0" y="251" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Fiel à origem</text>
+<text x="632.0" y="272" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">+ _ingested_at</text>
+<text x="632.0" y="293" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">+ _source, _batch_id</text>
+<g filter="url(#cardShadow)">
+<rect x="754" y="158" width="176" height="224" rx="11" fill="#f2f4f6" stroke="#d7dce2" stroke-width="1.2"/>
+</g>
+<path d="M 754 200 V 169 A 11 11 0 0 1 765 158 H 919 A 11 11 0 0 1 930 169 V 200 Z" fill="#6b7684"/>
+<use href="#icon-medal" x="768" y="169" width="20" height="20"/>
+<text x="853.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Silver</text>
+<text x="842.0" y="230" font-size="12.8" font-weight="700" fill="#1b1f24" text-anchor="middle">slv_taxi_trips</text>
+<text x="842.0" y="251" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Tipada e limpa</text>
+<text x="842.0" y="272" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Deduplicada</text>
+<text x="842.0" y="293" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Chave por hash</text>
+<g filter="url(#cardShadow)">
+<rect x="964" y="158" width="176" height="224" rx="11" fill="#fdf8e8" stroke="#edd98f" stroke-width="1.2"/>
+</g>
+<path d="M 964 200 V 169 A 11 11 0 0 1 975 158 H 1129 A 11 11 0 0 1 1140 169 V 200 Z" fill="#b8860b"/>
+<use href="#icon-medal" x="978" y="169" width="20" height="20"/>
+<text x="1063.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Gold</text>
+<text x="1052.0" y="230" font-size="12.8" font-weight="700" fill="#1b1f24" text-anchor="middle">agg_demand_by_hour</text>
+<text x="1052.0" y="251" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">agg_tips_by_payment_type</text>
+<text x="1052.0" y="272" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">agg_demand_by_area</text>
+<text x="1052.0" y="293" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Agregações de negócio</text>
+<g filter="url(#cardShadow)">
+<rect x="1214" y="158" width="196" height="224" rx="11" fill="#f0f8f3" stroke="#bfe0cb" stroke-width="1.2"/>
+</g>
+<path d="M 1214 200 V 169 A 11 11 0 0 1 1225 158 H 1399 A 11 11 0 0 1 1410 169 V 200 Z" fill="#276749"/>
+<use href="#icon-chart" x="1228" y="169" width="20" height="20"/>
+<text x="1323.0" y="185" font-size="15.5" font-weight="700" fill="#ffffff" text-anchor="middle">Consumo</text>
+<text x="1312.0" y="230" font-size="12.8" font-weight="700" fill="#1b1f24" text-anchor="middle">SQL Warehouse</text>
+<text x="1312.0" y="251" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Analistas via SQL</text>
+<text x="1312.0" y="272" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">Demanda, receita</text>
+<text x="1312.0" y="293" font-size="12.2" font-weight="400" fill="#1b1f24" text-anchor="middle">e gorjetas</text>
+<line x1="274" y1="228" x2="308" y2="228" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="265.3" y="209" width="51.400000000000006" height="17" rx="8.5" fill="#ffffff" stroke="#e2e6ea" stroke-width="1"/>
+<text x="291.0" y="221.5" font-size="11" font-weight="700" fill="#57606a" text-anchor="middle">upload</text>
+<line x1="510" y1="228" x2="544" y2="228" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="498.1" y="209" width="57.800000000000004" height="17" rx="8.5" fill="#ffffff" stroke="#e2e6ea" stroke-width="1"/>
+<text x="527.0" y="221.5" font-size="11" font-weight="700" fill="#57606a" text-anchor="middle">PySpark</text>
+<line x1="720" y1="228" x2="754" y2="228" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="720.9" y="209" width="32.2" height="17" rx="8.5" fill="#ffffff" stroke="#e2e6ea" stroke-width="1"/>
+<text x="737.0" y="221.5" font-size="11" font-weight="700" fill="#57606a" text-anchor="middle">dbt</text>
+<line x1="930" y1="228" x2="964" y2="228" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="930.9" y="209" width="32.2" height="17" rx="8.5" fill="#ffffff" stroke="#e2e6ea" stroke-width="1"/>
+<text x="947.0" y="221.5" font-size="11" font-weight="700" fill="#57606a" text-anchor="middle">dbt</text>
+<line x1="1180" y1="228" x2="1214" y2="228" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="1180.9" y="209" width="32.2" height="17" rx="8.5" fill="#ffffff" stroke="#e2e6ea" stroke-width="1"/>
+<text x="1197.0" y="221.5" font-size="11" font-weight="700" fill="#57606a" text-anchor="middle">SQL</text>
+<rect x="334" y="408" width="806" height="34" rx="9" fill="#ddf4ff" stroke="#80ccff" stroke-width="1.1"/>
+<use href="#icon-shield" x="547.825" y="415.0" width="20" height="20" color="#0969da"/>
+<text x="576.825" y="429.5" font-size="12.5" font-weight="600" fill="#0969da">26 testes dbt · not_null · unique · accepted_values</text>
+<rect x="334" y="466" width="806" height="38" rx="9" fill="#f3ecfe" stroke="#cbb6f0" stroke-width="1.1"/>
+<use href="#icon-workflow" x="558.1" y="475.0" width="20" height="20" color="#6639ba"/>
+<text x="587.1" y="489.5" font-size="12.5" font-weight="600" fill="#6639ba">Databricks Workflows · ingest_bronze → dbt_build</text>
+<rect x="30" y="526" width="1380" height="38" rx="9" fill="#dafbe1" stroke="#7ee2a8" stroke-width="1.1"/>
+<use href="#icon-ci" x="503.425" y="535.0" width="20" height="20" color="#1a7f37"/>
+<text x="532.425" y="549.5" font-size="12.5" font-weight="600" fill="#1a7f37">GitHub Actions · CI a cada push — ruff · pytest · dbt parse</text>
+</svg>
