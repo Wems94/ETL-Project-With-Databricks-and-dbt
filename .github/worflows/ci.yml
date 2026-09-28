@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Instalar dependências
+        run: uv sync --locked
+
+      - name: Lint (ruff)
+        run: uv run ruff check .
+
+      - name: Testes (pytest)
+        run: uv run pytest -v
+
+      - name: Criar profile dbt (valores fictícios)
+        run: |
+          mkdir -p ~/.dbt
+          cat > ~/.dbt/profiles.yml << 'EOF'
+          taxi_pipeline:
+            target: dev
+            outputs:
+              dev:
+                type: databricks
+                catalog: workspace
+                schema: dev_silver
+                host: fake.cloud.databricks.com
+                http_path: /sql/1.0/warehouses/fake
+                token: fake
+                threads: 1
+          EOF
+
+      - name: Validar projeto dbt (parse)
+        working-directory: dbt/taxi_pipeline
+        run: uv run dbt parse
